@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Recommendation System</title>
+    <style>
+        /* Center align the form */
+        form {
+            text-align: center;
+        }
+        /* Style the error message */
+        .error-message {
+            color: red;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+        /* Style the recommended movies list */
+        .recommended-movies {
+            list-style-type: none;
+            padding: 0;
+        }
+        .recommended-movies li {
+            margin-bottom: 5px;
+        }
+    </style>
+    <!-- Add the following CSS for additional styling -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            text-align: center;
+            margin-top: 50px;
+        }
+        input[type="text"] {
+            width: 80%;
+            padding: 10px;
+            margin: 10px auto;
+            display: block;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        button[type="submit"] {
+            padding: 10px 20px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            display: block;
+            margin: 10px auto;
+        }
+        button[type="submit"]:hover {
+            background-color: #555;
+        }
+        h2 {
+            text-align: center;
+            margin-top: 30px;
+        }
+        ul {
+            padding: 0;
+            list-style: none;
+            text-align: center;
+        }
+        li {
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Movie Recommendation System</h1>
+    
+    <form action="/" method="POST">
+        <label for="movie_title">Enter a Movie Title:</label><br>
+        <input type="text" id="movie_title" name="movie_title" required><br>
+        <button type="submit">Get Recommendations</button>
+    </form>
+    
+    {% if error_message %}
+    <p class="error-message">{{ error_message }}</p>
+    {% endif %}
+    
+    {% if recommended_movies %}
+    <h2>Recommended Movies</h2>
+    <ul class="recommended-movies">
+        {% for movie in recommended_movies %}
+            <li>{{ movie }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+</body>
+</html>
+
+
+
+
+
